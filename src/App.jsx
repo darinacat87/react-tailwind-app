@@ -1,5 +1,49 @@
 import { useState } from "react";
 import _ from "lodash";
+import RandomButton from "./RandomButton";
+import RandomNumberDisplay from "./RandomNumberDisplay";
+
+function App() {
+  const [randomNumber, setRandomNumber] = useState(_.random(1, 100));
+
+  const generateNumber = () => {
+    setRandomNumber(_.random(1, 100));
+  };
+
+  return (
+    <div
+      className="
+        min-h-screen
+        flex flex-col
+        justify-center
+        items-center
+        gap-6
+        px-5
+        text-center
+        bg-gradient-to-br
+        from-primary
+        to-secondary
+      "
+    >
+      <h1 className="text-3xl md:text-4xl font-semibold text-white drop-shadow-lg">
+        Привіт! Я вивчаю React 🚀
+      </h1>
+
+      <p className="text-lg text-gray-100">
+        Це мій React + Vite + Tailwind проєкт
+      </p>
+
+      <RandomNumberDisplay number={randomNumber} />
+
+      <RandomButton onClick={generateNumber} />
+    </div>
+  );
+}
+
+export default App;
+
+/* import { useState } from "react";
+import _ from "lodash";
 import "./App.css";
 import RandomButton from "./RandomButton";
 import RandomNumberDisplay from "./RandomNumberDisplay";
@@ -26,6 +70,8 @@ function App() {
 }
 
 export default App;
+
+*/
 
 // Старий код від Vite
 // import { useState } from 'react'
